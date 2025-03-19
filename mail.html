@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <title>Mail against kalpesh</title>
+  <style>
+html,body{font-size:4vw;}
+form{margin:4vw 16px;}
+input[type="radio"]{transform:scale(2);}
+input[type="text"]{width:80vw; margin:1vw 10vw;
+	height:5vw; border-radius:10px; font-size:32px;}
+label{margin:0px 5px 0 50px;}
+button{width:60vw; height:8vw; color:white;
+      border-radius:1vw; margin:10px 20vw 0 20vw;
+      border:none;
+      background-color:rgb(100,100,255); font-size:4vw;}
+body{background-color:rgb(200,200,200); margin:0;}
+ </style>
+</head>
+<body>
+  <form id="surveyForm">
+<input type="text" id="name" placeholder="   Enter your name" required>
+    <span class="question">You're a</span>
+    <br><label for="witness">witness</label>
+    <input type="radio" id="witness" name="who" value="witness" required>
+    <label for="victim">victim</label>
+    <input type="radio" id="victim" name="who" value="victim">
+    <label for="both">both</label>
+    <input type="radio" id="both" name="who" value="both">
+<hr>
+   <button type="submit">Send</button>
+</form>
+  <script>
+
+    const form = document.getElementById('surveyForm');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+console.log(form.who.value)
+    var text="mailto:<mail@dolphininstitute.in>?subject=Complaint against Post Graduate student of you college. Blackmailing with girls case. &body=Dear Sir/Madam,%0D%0A%0D%0AI am writing regarding a student of your college Named Kalpesh Tandel coming from karnataka. He's pursuing Masters of Science -MS,Astronomy and Astrophysics from your college. He's found blackmailing girls online and even giving rape threats. I am a";
+if(form.who.value =="witness"){text+= " witness of his Wrongdoing and I hope you'll receive the mails of the victims very soon."}
+else if(form.who.value =="victim"){text+=" victim of his Wrongdoing and my mental peace is detoriated because of his deeds."}
+else{text+=" victim of his Wrongdoing which has affected my mental health and also seen him misbehaving with other girls so I hope you'll receive the mails of the other victims very soon."}
+
+text+= "%0D%0A%0D%0A I am requesting you to take strict action against him. For this I will be grateful to you forever.%0D%0A%0D%0AI shall look forward to your response.%0D%0A%0D%0A%0D%0AYours truly,%0D%0A";
+text+=form.name.value;
+
+
+  var link = document.createElement('a');
+  link.href = text;
+  link.click();
+    });
+  </script>
+</body>
+</html>
